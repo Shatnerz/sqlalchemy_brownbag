@@ -6,7 +6,7 @@ from models.models import Base, Employee, Ssn, Team, Task
 
 
 # Setup Engine
-engine = create_engine('mysql://test:123@localhost:3306/sqlalchemy_demo')
+engine = create_engine('mysql://test@localhost:3306/sqlalchemy_demo')
 
 # Create schema based on the models.
 # This won't rewrite or remove any data. Old schemas won't be updated.
@@ -31,6 +31,7 @@ session.query(Employee).filter_by(name='Vebdev the Webdev').first()
 
 session.commit()
 # after the commit id, created_at, and last_modified are accessible
+session.close()
 
 # session1 = Session()
 # session2 = Session()
